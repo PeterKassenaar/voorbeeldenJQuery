@@ -1,0 +1,75 @@
+<!DOCTYPE HTML>
+<html>
+<head>
+<meta charset="utf-8">
+<title>Cursus JavaScript - jQuery template </title>
+<!-- 
+Invoegen via CDN
+<script src="http://code.jquery.com/jquery.min.js"></script>
+-->
+<style>
+
+</style>
+
+<script src="scripts/jquery-1.7.1.min.js"></script>
+<script>
+$(document).ready(function(e) {
+	// alle jQuery-script komt hier
+	$('#mijnKnop').click(function(){
+
+		var aantalSelecties = $('input[type=checkbox]:checked');
+		console.log('U hebt ' + aantalSelecties.length + ' boxes geselecteerd');
+		$('#divResult').html('U hebt ' + aantalSelecties.length + ' boxes geselecteerd');
+	});
+
+		var isChecked = false;  // flag
+	$('#btnSelectAll').click(function(){
+			if(isChecked){
+				$('input[type=checkbox]').removeAttr('checked');
+				isChecked=false;
+			}
+			else{
+				$('input[type=checkbox]').attr('checked', 'checked');
+				isChecked=true;
+			}
+	});
+
+	// $('#btnUnSelectAll').click(function(){
+	// 		$('input[type=checkbox]').removeAttr('checked');
+	// })
+
+	
+	
+});
+
+</script>
+</head>
+
+<body>
+<!-- Inhoud van de pagina -->
+<input type="checkbox" value="1">Nummer 1<br />
+<input type="checkbox" value="2">Nummer 2<br />
+<input type="checkbox" value="3">Nummer 3<br />
+<input type="checkbox" value="4">Nummer 4<br />
+<input type="checkbox" value="5">Nummer 5<br />
+<input type="checkbox" value="6">Nummer 6<br />
+<input type="checkbox" value="7">Nummer 7<br />
+<input type="checkbox" value="8">Nummer 8<br />
+<input type="checkbox" value="9">Nummer 9<br />
+<input type="checkbox" value="10">Nummer 10<br />
+<input type="checkbox" value="11">Nummer 11<br />
+<input type="checkbox" value="12">Nummer 12<br />
+<input type="checkbox" value="13">Nummer 13<br />
+<button id="mijnKnop">Controleer checkboxes</button>
+<button id="btnSelectAll">(de)selecteer alles</button>
+<!-- <button id="btnUnSelectAll">De-selecteer alles</button> -->
+<div id="divResult"></div>
+
+
+
+
+
+</body>
+</html>
+
+

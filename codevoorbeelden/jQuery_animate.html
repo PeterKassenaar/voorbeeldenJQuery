@@ -1,0 +1,112 @@
+﻿<!DOCTYPE html>
+<html>
+<head>
+	<meta charset="utf-8">
+	<title>Cursus JavaScript - jQuery template</title>
+	<script src="http://code.jquery.com/jquery.min.js"></script>
+	<script src="scripts/jquery.easing.1.3.js"></script>
+	<script>
+		$(document).ready(function (e) {
+
+			// Hier staan de variabelen
+			var standaardInstellingen = {
+				'padding-left': 0,
+				'font-size': '12px',
+				'border-width': '1px'
+			};
+
+			var animateOptions = {
+				'padding-left': '600px',
+				'font-size': '24px',
+				'border-width': '4px'
+			};
+
+			// Vanaf hier de logica.
+			//======================
+			// 1. Eerste paragraaf animeren
+			$('#btnAnimate').on('click', function () {
+				$('#textAnimate').animate(animateOptions, 2000);
+			});
+
+
+			// 2. Animatie terugdraaien (revert)
+			$('#btnRevert').on('click', function () {
+				$('#textAnimate').animate(standaardInstellingen, 300);
+			});
+
+
+
+			// 3. Animatie voor het menu. Eerst de options, daarna de functie/eventhandler
+			var hoverInOptions = {
+				'padding-left': '+=80px',
+				'font-weight': 'bold',
+				'width': '+=20px',
+				'height': '+=10px'
+			};
+			var hoverOutOptions = {
+				'padding-left': '-=80px',
+				'font-weight': 'normal',
+				'width': '-=20px',
+				'height': '-=10px'
+			};
+
+			$('#menu li').hover(
+				// parameter 1: de hover-in function
+				function () {
+					$(this).animate(hoverInOptions, 200);
+				},
+				// parameter 2: de hover-out function
+				function () {
+					$(this).animate(hoverOutOptions, 200);
+				});
+
+			$('#btnEasing').on('click', function () {
+				$('#easingDiv').animate({ width: '300px' }, 400, 'easeInCirc', function () {
+					// callback
+				})
+			});
+		});
+
+	</script>
+	<style>
+		#textAnimate {
+			background-color: #669966;
+			border: 2px solid #333;
+			border-radius: 4px;
+			border-shadow: 3px 3px 3px #888;
+			width: 100px;
+			min-height: 60px;
+		}
+
+		#menu li {
+			display: block;
+			width: 150px;
+			background-color: #FF9933;
+			border: 1px solid #309;
+			padding: 10px;
+			margin: 4px 10px;
+			cursor: pointer;
+		}
+
+		#easingDiv {
+			width: 100px;
+			height: 40px;
+			background-color: #669966;
+		}
+	</style>
+</head>
+<body>
+	<p id="textAnimate">Deze paragraaf kan animeren</p>
+	<button id="btnAnimate">Start</button>
+	<button id="btnRevert">Revert</button>
+	<ul id="menu">
+		<li>Eerste item</li>
+		<li>Tweede item</li>
+		<li>Derde item</li>
+		<li>Vierde item</li>
+		<li>Vijfde item</li>
+	</ul>
+	<button id="btnEasing">Easing</button>
+	<div id="easingDiv"></div>
+</body>
+</html>

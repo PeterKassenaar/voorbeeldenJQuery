@@ -1,0 +1,45 @@
+﻿<!DOCTYPE html>
+<html>
+<head>
+	<meta charset="utf-8">
+	<title>01 - kennismaking jQuery</title>
+	<style>
+		/*Eenvoudige styling */
+		p {
+			max-width:300px;
+			background-color: #FC6;
+		}
+
+	</style>
+
+</head>
+<body>
+	<h2>Dit is een koptekst</h2>
+	<p>Dit is de eerste paragraaf.Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's standard dummy text ever since the 1500s, when an unknown printer took a galley of type and scrambled it to make a type specimen book. It has survived not only five centuries, but also the leap into electronic typesetting, remaining essentially unchanged. </p>
+	<p>Dit is de tweede paragraaf</p>
+	<p>Dit is de derde paragraaf.Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's standard dummy text ever since the 1500s, when an unknown printer took a galley of type and scrambled it to make a type specimen book. It has survived not only five centuries, but also the leap into electronic typesetting, remaining essentially unchanged. </p>
+	<button id="btnHide">Laat de paragrafen verdwijnen!</button>
+	<button id="btnShow">Toon paragrafen!</button>
+	<hr />
+
+	<!-- ****************** -->
+	<!-- Hieronder alle scripts -->
+	<!-- ****************** -->
+	<script src="scripts/jquery-1.7.1.min.js"></script>
+	<script>
+		$(document).ready(function () {
+
+			// Functie voor verdwijnen
+			$('#btnHide').on('click', function () {
+				$('p').slideUp('fast');
+			});
+
+			// functie voor tonen
+			$('#btnShow').on('click', function () {
+				$('p').slideDown(2000);
+			})
+		});
+
+	</script>
+</body>
+</html>

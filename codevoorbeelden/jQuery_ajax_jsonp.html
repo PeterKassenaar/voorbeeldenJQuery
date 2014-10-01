@@ -1,0 +1,45 @@
+﻿<!DOCTYPE HTML>
+<html>
+<head>
+<meta charset="utf-8">
+<title>Cursus JavaScript - Basic Ajax </title>
+<script src="scripts/jquery-1.7.1.min.js"></script>
+<script>
+$(document).ready(function(e) {
+	$('#btnRequest').on('click', handleClick);
+});
+
+// de klik op de knop omzetten in een Ajax-request
+function handleClick(event){
+	// 1. variabelen instellen
+	$.ajax({
+		dataType: 'jsonp',
+		contentType: 'application/json',
+		url: 'http://api.yindo.com/api/book/new/10',
+		success: handleData,	// success callbackfunctie
+		error : handleError		// error callbackfunctie
+	});	
+}
+
+// success callback-functie
+function handleData(data){
+	console.log(data);
+		for (var i in data){
+			$('#myDiv').append('<p>' + i + ': <strong>' + data[i].title + '</strong></p>');
+		}
+}
+
+// error callbackfunctie
+function handleError(xhr){
+	console.log('er is een fout opgetreden: ' + xhr.responseText);	
+}
+
+</script>
+</head>
+
+<body>
+<button id="btnRequest">Ajax Request via jsonp</button>
+<div id="myDiv"></div>
+</body>
+</html>
+

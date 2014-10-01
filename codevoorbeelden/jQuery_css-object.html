@@ -1,0 +1,65 @@
+<!DOCTYPE HTML>
+<html>
+<head>
+<meta charset="utf-8">
+<title>Cursus JavaScript - jQuery template </title>
+<!-- 
+Invoegen via CDN
+<script src="http://code.jquery.com/jquery.min.js"></script>
+-->
+<script src="scripts/jquery-1.7.1.min.js"></script>
+<style>
+input{
+	width:200px;
+	height:18px;
+	font-size:16px;	
+}
+#myDiv{
+	font-size:32px;
+	
+	color: #fff;
+}
+</style>
+<script>
+$(document).ready(function(e) {
+	// alle jQuery-script komt hier
+	
+	// voorbeeld CSS-object
+	var opmaak ={
+		'width':'100px',
+		'height' : '200px',
+		'background-color': '#444',
+		'font-size' : '20px',
+		'color': 'white'
+	};
+	
+	$('#btnGo').on('click', function(){
+		var hoogte = $('#txtHoogte').val();
+		var breedte = $('#txtBreedte').val();
+		var kleur = $('#txtKleur').val();
+		
+		var opmaak = {
+			'height' : hoogte,
+			'width' : breedte,
+			'background-color':kleur
+		}
+		$('#myDiv').css(opmaak);
+	});
+});
+
+</script>
+</head>
+
+<body>
+<!-- Inhoud van de pagina -->
+<input id="txtHoogte" placeholder="hoogte (in pixels)">
+<input id="txtBreedte" placeholder="breedte (in pixels)">
+<input id="txtKleur" placeholder="kleur (in #rgb)">
+<button id="btnGo">Maak div</button>
+
+
+<div id="myDiv">Hello World</div>
+</body>
+</html>
+
+
