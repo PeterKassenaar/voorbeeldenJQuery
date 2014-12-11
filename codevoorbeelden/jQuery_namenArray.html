@@ -1,0 +1,101 @@
+<!DOCTYPE HTML>
+<html>
+<head>
+<meta charset="utf-8">
+<title>Cursus JavaScript - jQuery template </title>
+<!-- 
+Invoegen via CDN
+<script src="http://code.jquery.com/jquery.min.js"></script>
+-->
+<script src="scripts/jquery-1.7.1.min.js"></script>
+<script> 
+// Een functie om namen te zoeken binnen een array.
+
+var namenArray = [
+	{naam : 'Tom' , geslacht: 'm' , aantal: 20, jaar: 2014 },
+	{naam : 'Daan' , geslacht: 'm' , aantal: 24, jaar: 2014 },
+	{naam : 'Frits' , geslacht: 'm' , aantal: 21, jaar: 2014 },
+	{naam : 'Daylon' , geslacht: 'm' , aantal: 2, jaar: 2014 },
+	{naam : 'Stijn' , geslacht: 'm' , aantal: 29, jaar: 2014 },
+	{naam : 'Kim' , geslacht: 'm' , aantal: 23, jaar: 2014 },
+	{naam : 'Kim' , geslacht: 'v' , aantal: 54, jaar: 2014 },
+	{naam : 'Lotte' , geslacht: 'v' , aantal: 46, jaar: 2014 },
+	{naam : 'Lies' , geslacht: 'v' , aantal: 11, jaar: 2014 },
+	{naam : 'Jetty' , geslacht: 'v' , aantal: 18, jaar: 2014 },
+	{naam : 'Sandra' , geslacht: 'v' , aantal: 8, jaar: 2014 },
+	{naam : 'Chamira' , geslacht: 'v' , aantal: 1, jaar: 2014 }
+];
+
+var meisjesNamen =[
+	"Feline",
+	"Lotte",
+	"Mabel",
+	"Kimi",
+	"Hannah",
+	"Demi"
+];
+
+$(document).ready(function(e) {
+	// alle JavaScript komt hier
+	$('#btnGetNaam').on('click', function(){
+		var naam = $('#txtNaam').val();
+		var msg = '';
+		for (var i = 0; i < meisjesNamen.length; i++){
+			if (meisjesNamen[i].toLowerCase() === naam.toLowerCase()){
+				msg =' De naam ' + meisjesNamen[i] + ' is gevonden!';
+				$.ajax({
+					// HAAL extra gegevens over gevonden Naam.
+				});
+				break;
+			}
+			else{
+				msg = 'De naam ' + naam + ' is helaas niet gevonden';
+			}
+		}
+		
+		$('#divResult').text(msg);
+	});
+	
+	// Functie 2 voor zoeken in de complexe array
+	$('#btnGetNaam2').on('click', function(){
+		var naam = $('#txtNaam2').val();
+		var msg2 = '';
+		var gevondenNaam;
+		
+		for (var j=0; j < namenArray.length; j++){
+			if(namenArray[j].naam.toLowerCase() === naam.toLowerCase()){
+				gevondenNaam = namenArray[j];
+				break;
+			}
+		}
+		
+		if(gevondenNaam){
+			msg2 = 'De naam ' + gevondenNaam.naam + ' is gevonden! <br />';
+			msg2 += 'De naam komt ' + gevondenNaam.aantal + ' keer voor in '+ gevondenNaam.jaar;		
+		}
+		else{
+			msg2 = ' De naam ' + naam + ' is helaas niet gevonden!';
+		}
+		
+		$('#divResult2').html(msg2);
+	});
+});
+</script>
+</head>
+
+<body>
+<h2>Zoek op meisjenaam in 'kale'  array</h2>
+	<input type="text" id="txtNaam" placeholder="Zoek een naam"><br/>
+	<button id="btnGetNaam">Zoek naam!</button>
+	<div id="divResult"></div>
+	
+	<hr />
+	<h2>Zoek op naam in array met objecten</h2>
+	<input type="text" id="txtNaam2" placeholder="Zoek een naam"><br/>
+	<button id="btnGetNaam2">Zoek naam!</button>
+	<div id="divResult2"></div>
+	
+</body>
+</html>
+
+
