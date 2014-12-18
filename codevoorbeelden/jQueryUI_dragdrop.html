@@ -1,0 +1,92 @@
+﻿<!DOCTYPE html>
+<html>
+<head>
+	<meta charset="utf-8">
+	<link rel="stylesheet" type="text/css" href="css/ui-lightness/jquery-ui-1.8.18.custom.css">
+	<title>Drag - Drop 01</title>
+	<!--
+	Kale Drag/Drop-demo, zonder parameter
+	-->
+	<script src="scripts/jquery-1.7.1.min.js"></script>
+	<script src="scripts/jquery-ui-1.8.18.custom.min.js"></script>
+	<style>
+		.ui-draggable-dragging {
+			width: 150%;
+			height: 150%;
+		}
+	</style>
+	<script>
+		$(document).ready(function (e) {
+			// alle jQuery-script komt hier
+			// elementen draggable maken
+			$('.dragme').draggable();
+
+			$('.dropzone').droppable({
+				drop: function (event, ui) {
+					if (ui.draggable.data('nummer') === $(this).data('accept')) {
+						alert('gefeliciteerd! U hebt een ' + ui.draggable.data('friendlyname') + ' gewonnnen.');
+						ui.draggable('option', 'revert', 'false');
+					}
+					else {
+						alert('jammer, probeer het nog een keer');
+					}
+				},
+				accept: '.dragme'
+			});
+			//$('.dropzone').mouseenter(function(){
+			//	console.log('er is een mouseover over een dropzone');
+			//});
+		});
+
+	</script>
+	<style>
+		.dragme {
+			width: 100px;
+			height: 100px;
+			border: 4px solid #999;
+			border-radius: 4px;
+			cursor: pointer;
+			background-color: #06F;
+			float: left;
+			margin: 4px;
+		}
+
+		.tekst {
+			font-size: 42px;
+			color: #fff;
+			font-family: Tahoma, Geneva, sans-serif;
+			text-align: center;
+		}
+
+		.dropzone {
+			background-color: #CCC;
+			border: 4px solid #999;
+			width: 150px;
+			height: 150px;
+			float: right;
+			margin: 4px;
+		}
+
+		.oranje {
+			background-color: #FF9900;
+		}
+
+		.groen {
+			background-color: #090;
+		}
+
+		.rood {
+			background-color: #CC3333;
+		}
+	</style>
+</head>
+<body>
+	<!-- Inhoud van de pagina -->
+	<div class="dragme tekst" id="drag1" data-nummer="1" data-friendlyname="Hark">1</div>
+	<div class="dragme tekst" id="drag2" data-nummer="2" data-friendlyname="Parasol">2</div>
+	<div class="dragme tekst" id="drag3" data-nummer="3" data-friendlyname="Weerwolf">3</div>
+	<div class="dropzone oranje tekst" id="dropzone1" data-accept="1"><p>1</p></div>
+	<div class="dropzone groen tekst" id="dropzone2" data-accept="2"><p>2</p></div>
+	<div class="dropzone rood tekst" id="dropzone3" data-accept="3"><p>3</p></div>
+</body>
+</html>

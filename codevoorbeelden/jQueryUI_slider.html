@@ -1,0 +1,50 @@
+﻿<!DOCTYPE html>
+<html>
+<head>
+	<meta charset="utf-8">
+	<title>Slider - jQuery UI</title>
+	<link rel="stylesheet" href="css/ui-lightness/jquery-ui-1.8.18.custom.css">
+
+	<!--
+	Invoegen via CDN
+	<script src="http://code.jquery.com/jquery.min.js"></script>
+	-->
+	<script src="scripts/jquery-1.7.1.min.js"></script>
+	<script src="scripts/jquery-ui-1.8.18.custom.min.js"></script>
+	<script>
+		$(document).ready(function (e) {
+			// alle jQuery-script komt hier
+			/* Voorbeeld met parameters 
+			var parameters = {
+				range: true,
+				min: 0,
+				max: 100,
+				values: [50, 60],
+				animate: true,
+				slide: function (event, ui) {
+					$('#divSliderValue').html('Waarde: ' + ui.value);
+				},
+				start: function (event, ui) {
+					console.log('Slide event is gestart');
+				},
+				stop: function (event, ui) {
+					$('#divSliderValue').append('<br />De eindwaarde is: ' + ui.value);
+
+					//     ophalen van huidige begin- en eindwaarde van de range slider.
+					var values = $('#slider').slider('option', 'values');
+					$('#divSliderValue').append('<br />De minimale waarde is: ' + values[0]);
+					$('#divSliderValue').append('<br />De maximale waarde is: ' + values[1]);
+				}
+
+			} */
+			
+			$('#slider').slider(parameters);
+		});
+	</script>
+</head>
+<body>
+	<!-- Inhoud van de pagina -->
+	<div id="slider"></div>
+	<div id="divSliderValue"></div>
+</body>
+</html>

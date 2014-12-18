@@ -1,0 +1,46 @@
+﻿<!DOCTYPE html>
+<html>
+<head>
+	<meta charset="utf-8">
+	<title>Cursus - jQuery UI template </title>
+	<link rel="stylesheet" type="text/css"
+		  href="css/ui-lightness/jquery-ui-1.8.18.custom.css">
+	<!--
+	Invoegen via CDN
+	<script src="http://code.jquery.com/jquery.min.js"></script>
+	-->
+	<script src="scripts/jquery-1.7.1.min.js"></script>
+	<script src="scripts/jquery-ui-1.8.18.custom.min.js"></script>
+	<script src="scripts/jquery.ui.datepicker-nl.js"></script>
+</head>
+<body>
+	<!-- Inhoud van de pagina -->
+	<h1>Voorbeeld Date Picker</h1>
+	<input type="text" id="datum" /> Datum
+	<script>
+		$(document).ready(function (e) {
+			// alle jQuery-script komt hier
+
+			$('#datum').datepicker();
+
+			// Voorbeeld parameters
+			/*
+			var dateParameters = {
+					onSelect: function (dateText) {
+						var gekozendatum = dateText; //the first parameter of this function
+						var dateAsObject = $(this).datepicker('getDate'); //the getDate method
+						alert('U koos:  ' + gekozendatum);
+						// ga datum doorsturen naar agenda
+						// OF: ga een ajax-call doen met de gekozen datum
+					}
+				};
+			*/
+			//$('#btnHide').on('click', function(){
+			//	$( "#datum" ).datepicker( "hide" );
+			//});
+			// stel in dat Nederlands wordt gebruikt in de kalender.
+			//$.datepicker.regional['nl']
+		});
+	</script>
+</body>
+</html>
