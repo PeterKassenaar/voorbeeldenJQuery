@@ -13,13 +13,23 @@
 		// de klik op de knop omzetten in een Ajax-request
 		function handleClick() {
 			// 1. data-object maken van tekstveld
-			var data = {};
-			data.name = $('#txtName').val();
-			data.email = $('#txtEmail').val();
+			var mijnData = {};
+			mijnData.name = $('#txtName').val();
+			mijnData.email = $('#txtEmail').val();
 			// 2. $.post() aanroepen en data meegeven. Op de server moet iets worden gedaan met 'data'
-			$.post('simple.html', data, function (result) {
+			$.post('simple.html', mijnData, function (result) {
 				$('#myDiv').html(result);
 			})
+			
+			// 3. $.ajax() gebruiken (als je iets anders wilt)
+			$.ajax({
+				url: 'simple.html',
+				data: mijnData,
+				method: 'POST' , 
+				success: function(resultaat){
+					// verwerk resultaat/melding in de UI	
+				}
+			});
 
 			
 		}
